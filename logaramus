@@ -1,0 +1,5 @@
+#! /bin/bash
+
+uptime >> ~/log.txt
+sensors | grep Core >> ~/log.txt
+
