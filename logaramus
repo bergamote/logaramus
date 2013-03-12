@@ -6,7 +6,7 @@ time="`date +%H%M`"
 timestamp="`date +%s`"
 timestamp+="|"
 # get 15 min load
-load="`cat /proc/loadavg | tail -c 16 | head -c 4`"
+load="`cat /proc/loadavg | head -c 15 | tail -c 5`"
 log=$timestamp$load
 echo $log > tmp.txt
 # clear 1 week old log at midnight
