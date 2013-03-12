@@ -9,10 +9,15 @@ timestamp+="|"
 load="`cat /proc/loadavg | head -c 15 | tail -c 5`"
 log=$timestamp$load
 echo $log > tmp.txt
-# clear 1 week old log at midnight
+# create log file if not present
+if [ ! -f log.txt ]; then
+    touch log.txt
+fi
+# clear 1 week old log if midnight
 if [ "$time" -lt 1 ]; then
   head -n 692 log.txt >> tmp.txt
 else
+# otherwise just add the new log
   cat log.txt >> tmp.txt
 fi 
 mv tmp.txt log.txt

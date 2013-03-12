@@ -41,9 +41,10 @@ foreach($lograw as $line) {
 $times = array('6:00','12:00','18:00');
 foreach ($log as $timestamp => $loadavg) {
   $real_load = $loadavg;
-  $cores = `cat /proc/cpuinfo | grep "cpu cores"`;
-  $cores = $cores[12];
-  $loadavg = ($loadavg * 100)/$cores;
+  $cores = `cat /proc/cpuinfo | grep "processor"`;
+  $cores = strrev($cores);
+  $cores = $cores[0];
+  $loadavg = ($loadavg * 100)/($cores+1);
   $date = getdate($timestamp);
   $hnm = $date['hours'].":".str_pad($date['minutes'], 2, 0, STR_PAD_LEFT);
 
