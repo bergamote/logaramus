@@ -1,5 +1,18 @@
 #! /bin/bash
+## Loger script
 
-uptime >> ~/log.txt
-sensors | grep Core >> ~/log.txt
-
+# get time
+time="`date +%H%M`"
+timestamp="`date +%s`"
+timestamp+="|"
+# get 15 min load
+load="`cat /proc/loadavg | tail -c 16 | head -c 4`"
+log=$timestamp$load
+echo $log > tmp.txt
+# clear 1 week old log at midnight
+if [ "$time" -lt 1 ]; then
+  head -n 692 log.txt >> tmp.txt
+else
+  cat log.txt >> tmp.txt
+fi 
+mv tmp.txt log.txt
