@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf8">
   <title>Logaramus</title>
-   <link rel="stylesheet" href="http://openfontlibrary.org/face/pecita"> 
   <link rel="stylesheet" href="include/style.css"> 
   <script src="include/script.js" type="text/javascript"></script>
 </head>
 <body>
+<div id="top-pusher"></div>
 <h1>Logaramus</h1>
 <p>
 <?php 
@@ -39,12 +39,12 @@ foreach($lograw as $line) {
    $log[$timestamp] = trim($split[1]);
 }
 $times = array('6:00','12:00','18:00');
-foreach ($log as $timestamp => $loadavg) {
-  $real_load = $loadavg;
   $cores = `cat /proc/cpuinfo | grep "processor"`;
   $cores = strrev(trim($cores));
-  $cores = $cores[0];
-  $loadavg = ($loadavg * 100)/($cores+1);
+  $cores = $cores[0]+1;
+foreach ($log as $timestamp => $loadavg) {
+  $real_load = $loadavg;
+  $loadavg = ($loadavg/$cores * 100);
   $date = getdate($timestamp);
   $hnm = $date['hours'].":".str_pad($date['minutes'], 2, 0, STR_PAD_LEFT);
 
@@ -64,12 +64,12 @@ foreach ($log as $timestamp => $loadavg) {
 ?>
 </div>
 
-<div id="bottom-pusher"></div>
+
 
 <div id="status-wrap">
   <div id="status-bar">
   <?php 
-    echo date("g:i a, D j M Y")." - Load Averages: ";
+    echo date("h:i")." - Load Averages: ";
     $sb_load = `cat /proc/loadavg`;
     $sb_load = substr(trim($sb_load),0,14);
     echo $sb_load;

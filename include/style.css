@@ -1,15 +1,15 @@
 body {
   text-align:center;
-  background-color:#eee;
-    font-family:sans-serif; 
+
+    font-family:sans-serif;
 }
 h1 {
-  font-size:2.8em;
-  color:#B85895;
-  font-family:'Pecita'; 
-  text-shadow: 0 0 0.2em #666; 
+  font-size:3.2em;
+  color:#fff;
+  text-shadow: 0 0 0.2em #000; 
   margin:0;
   padding:0;
+    font-family:monospace;
   }
 p {
   margin:0 0 1em 0;
@@ -23,13 +23,11 @@ margin: 0px;
 }
 
 #uptime {
-   font-size:2em;
-   font-family:'Pecita'; 
+   font-size:1.2em;
+     text-shadow: 0 0 0.2em #fff; 
 }
 
 #graph-wrap, #graph-scale {
-  font-family:'Pecita'; 
-  font-size:1.5em;
   width:60%;
   margin-left:28%;
   clear:both;
@@ -43,7 +41,7 @@ float:left;
 #graph-wrap  {
   height:1345px;
   box-shadow:0 3px 3px #999 inset;
-  background-color:#dbdbdb;
+  background-color:#444;
   position:relative;
 }
 #graph-wrap div {
@@ -61,7 +59,7 @@ float:left;
 .hours span{
   position:relative;
   font-size:0.8em;
-  left:-3em;
+  left:-3.2em;
   top:-0.6em;
 }
 #graph-wrap div.days {
@@ -69,27 +67,23 @@ float:left;
 }
 .days span{
   position:relative;
-  margin-left:-6.6em;
+  margin-left:-7.6em;
   top:-0.5em;
 }
 
 #graph-wrap {
- /* position:absolute;
-  top:0;
-  left:0;
-  height:100%;
-  width:100%;*/
-  background:rgba(0,0,0,0) url(grid.png) repeat-y;
+  background:rgba(212,212,212,1) url(grid.png) repeat-y;
   background-size:100%;
-
 }
 
 #status-wrap {
   position:fixed;
-  bottom:0;
+  top:0;
   right:0;
   width:100%;
   background:#333;
+      font-family:monospace;
+      font-size:1.2em;
 }
 #status-bar {
   color:white;
@@ -102,7 +96,7 @@ float:left;
   color:#999;
 }
 
-#bottom-pusher {
+#top-pusher {
   clear:both;
   display:block;
   height:48px;
