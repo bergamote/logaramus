@@ -1,48 +1,39 @@
+
 body {
   text-align:center;
-
-    font-family:sans-serif;
+  font-family:sans-serif;
 }
 h1 {
+  display:block;
+  position:absolute;
   font-size:3.2em;
   color:#fff;
-  text-shadow: 0 0 0.2em #000; 
+  text-shadow: 0 0 0.2em #666; 
   margin:0;
   padding:0;
-    font-family:monospace;
-  }
-p {
-  margin:0 0 1em 0;
-  padding:0;
+  font-family:monospace;
+  right:1em;
+  top:1em;
 }
+
 ul
 {
 list-style-type: none;
 padding: 0px;
 margin: 0px;
 }
-
-#uptime {
-   font-size:1.2em;
-     text-shadow: 0 0 0.2em #fff; 
-}
-
+/*------------------------graph area----------------*/
 #graph-wrap, #graph-scale {
   width:60%;
   margin-left:28%;
   clear:both;
 }
-
-#graph-scale li{
-width:10%;
-text-align:left;
-float:left;
-}
 #graph-wrap  {
-  height:1345px;
+  min-height:1345px;
   box-shadow:0 3px 3px #999 inset;
-  background-color:#444;
   position:relative;
+  background:rgba(212,212,212,0.6) url(grid.png) repeat-y;
+  background-size:100%;
 }
 #graph-wrap div {
   height:2px;
@@ -67,40 +58,42 @@ float:left;
 }
 .days span{
   position:relative;
-  margin-left:-7.6em;
+  margin-left:-7.8em;
   top:-0.5em;
 }
-
-#graph-wrap {
-  background:rgba(212,212,212,1) url(grid.png) repeat-y;
-  background-size:100%;
+#top-pusher {
+  clear:both;
+  display:block;
+  height:50px;
 }
-
+/*------------------------status bar----------------*/
 #status-wrap {
   position:fixed;
   top:0;
   right:0;
   width:100%;
+  height:58px;
   background:#333;
-      font-family:monospace;
-      font-size:1.2em;
+  color:white;
+  font-family:monospace;
+  font-size:16px;
 }
 #status-bar {
-  color:white;
-  font-size:1.12em;
-  padding:0.5em;
-
+  padding:10px;
 }
 #status-bar a {
   font-size:0.8em;
   color:#999;
 }
-
-#top-pusher {
-  clear:both;
-  display:block;
-  height:48px;
+#graph-scale li{
+width:10%;
+text-align:left;
+float:left;
+color:#333;
+background:#aaa;
+padding:0px;
 }
+
 
 
 

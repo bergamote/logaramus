@@ -8,25 +8,6 @@
 </head>
 <body>
 <div id="top-pusher"></div>
-<h1>Logaramus</h1>
-<p>
-<?php 
-$result = `uptime`;
-$uptime = substr(trim($result), 11, -43);
-$uptime = str_replace(":", " hours ", $uptime);
-$uptime .= " minutes ";?>
-<span id="uptime">
-<?php echo "\nUp $uptime"; ?>
-</span>
-</p>
-
-<div id="graph-scale">
-<ul>
-<li>0%</li><li>10</li><li>20</li><li>30</li><li>40</li>
-<li>50</li><li>60</li><li>70</li><li>80</li><li>90</li>
-</ul>
-</div>
-
 <div id="graph-wrap">
 <div style="background-color:#95B858;height:1px;"></div>
 <?php
@@ -60,22 +41,28 @@ foreach ($log as $timestamp => $loadavg) {
   } 
   $bar_detail .= "></div></a>\n"; 
   echo $bar_detail;
-}
-?>
+}?>
 </div>
-
-
-
 <div id="status-wrap">
   <div id="status-bar">
   <?php 
-    echo date("h:i")." - Load Averages: ";
+    $result = `uptime`;
+    $uptime = substr(trim($result), 11, -43);
+    $uptime = str_replace(":", " hours ", $uptime);
+    $uptime .= " minutes";
+    echo date("h:i")." - Up $uptime - Load Averages: ";
     $sb_load = `cat /proc/loadavg`;
     $sb_load = substr(trim($sb_load),0,14);
     echo $sb_load;
   ?>
   <a href="javascript:location.reload(true);">Refresh</a> 
   </div>
+  <div id="graph-scale">
+<ul>
+<li>0</li><li>10</li><li>20</li><li>30</li><li>40</li>
+<li>50</li><li>60</li><li>70</li><li>80</li><li>90</li>
+</ul>
+</div>
 </div>
 
 </body>
