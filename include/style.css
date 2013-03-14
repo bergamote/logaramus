@@ -3,19 +3,17 @@ body {
   text-align:center;
   font-family:sans-serif;
 }
-h1 {
-  display:block;
-  position:absolute;
-  font-size:3.2em;
+#label {
+  position:fixed;
+  font-size:1.6em;
+  left:1.2em;
+  bottom:1em;
+}
+#label a {
+  text-decoration:none;
   color:#fff;
   text-shadow: 0 0 0.2em #666; 
-  margin:0;
-  padding:0;
-  font-family:monospace;
-  right:1em;
-  top:1em;
 }
-
 ul
 {
 list-style-type: none;

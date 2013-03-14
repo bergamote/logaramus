@@ -65,5 +65,9 @@ foreach ($log as $timestamp => $loadavg) {
 </div>
 </div>
 
+<div id="label">
+<a href="https://mrarrow.co.uk/logaramus" target="_blank">Logaramus</a>
+</div>
+
 </body>
 </html>
