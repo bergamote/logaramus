@@ -66,7 +66,7 @@ foreach ($log as $timestamp => $loadavg) {
 </div>
 
 <div id="label">
-<a href="https://mrarrow.co.uk/logaramus" target="_blank">Logaramus</a>
+<a href="http://mrarrow.co.uk/logaramus" target="blank">Logaramus</a>
 </div>
 
 </body>
